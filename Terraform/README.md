@@ -15,7 +15,7 @@ This project demonstrates a secure DevSecOps pipeline using a MERN stack applica
   - VPC with public subnet
   - Two EC2 instances:
     - **Jenkins Master** (`t3a.medium`): Jenkins, Docker, SonarQube, Trivy
-    - **Agent Node** (`t3a.large`): Docker, Kubernetes (kind), ArgoCD, Prometheus, Grafana
+    - **Agent Node** (`t3a.medium/t3a.large`): Docker, Kubernetes (kind), ArgoCD, Prometheus, Grafana
   - Separate Security Groups for Jenkins and Agent nodes
 - **CI/CD Tools**:
   - Jenkins Master-Slave setup with Docker agents
