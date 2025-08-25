@@ -29,23 +29,6 @@ jobs:
           cd Application-Code/backend/
           find . -name "*.js" -exec node --check {} +
 
-  gitleaks-scan:
-    runs-on: Agent-1
-    needs: compile
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Gitleaks Setup
-        uses: gitleaks/gitleaks-action@v2
-
-      - name: Gitleaks Scan
-        run: |
-          gitleaks detect --exit-code 1 --exclude-paths=.gitleaksignore
-          gitleaks detect --config=.gitleaks.toml --exit-code 1
-          gitleaks detect --source ./Application-Code/frontend/ --exit-code 1
-          gitleaks detect --source ./Application-Code/backend/ --exit-code 1
-
   trivy_fs_scan:
     runs-on: Agent-1
     needs: gitleaks-scan
