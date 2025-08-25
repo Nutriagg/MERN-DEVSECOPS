@@ -31,6 +31,7 @@ jobs:
 
   trivy_fs_scan:
     runs-on: Agent-1
+    needs: compile
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -50,6 +51,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Install unzip
+        run: sudo apt-get update && sudo apt-get install -y unzip
 
       - name: SonarQube Scan (client)
         uses: sonarsource/sonarqube-scan-action@master
