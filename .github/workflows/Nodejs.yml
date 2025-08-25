@@ -177,3 +177,4 @@ jobs:
         kubectl apply -f Kubernetes-Manifests-file/Database/ 
         kubectl apply -f Kubernetes-Manifests-file/Frontend/
         kubectl apply -f Kubernetes-Manifests-file/ingress.yaml
+        echo "all deployed"
